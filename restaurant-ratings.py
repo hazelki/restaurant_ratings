@@ -8,12 +8,12 @@ def rest_ratings ():
 
     for line in input_file:
         line = line.rstrip()
-        rest_score = line.split(':')
-        rest_name = rest_score[0]
-        score = int(rest_score[1])
-        restaurant_rating[rest_name] = score
+        rest_name, score = line.split(":")
+        restaurant_rating[rest_name] = int(score)
     
     for rest_name, score in sorted(restaurant_rating.items()):
         print "%s is rated at %d" % (rest_name, score)
 
     input_file.close()
+
+rest_ratings()
